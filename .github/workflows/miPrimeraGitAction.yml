@@ -11,17 +11,4 @@ jobs:
           node-version: '20'
       - run: npm install -g bats
       - run: bats -v
-  notify:
-    runs-on: ubuntu-latest
-    needs: [check-bats-version]
-    steps:
-      - name: Send email
-        uses: dawidd6/action-send-mail@v3
-        with:
-          server_address: smtp.gmail.com
-          server_port: 587
-          username: ${{ secrets.EMAIL_USERNAME }}
-          password: ${{ secrets.EMAIL_PASSWORD }}
-          subject: 'GitHub Action Status'
-          body: 'The GitHub Action was executed successfully.'
-          to: 'desarrollador911@gmail.com'
+  
